@@ -19,6 +19,14 @@ const proxyMap = {
             '^/svelteChild': ''
         },
         logLevel: 'debug'
+    },
+    '/vueChild': {
+        target: 'http://localhost:3003',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/vueChild': ''
+        },
+        logLevel: 'debug'
     }
 };
 
