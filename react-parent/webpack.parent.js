@@ -31,7 +31,7 @@ module.exports = {
                 logLevel: 'debug'
             },
             '/svelteChild': {
-                target: 'http://localhost:3001',
+                target: 'http://localhost:3002',
                 changeOrigin: true,
                 pathRewrite: {
                     '^/svelteChild': ''
