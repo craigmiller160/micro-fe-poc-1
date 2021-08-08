@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const buildRoot = path.resolve('..', 'build');
+const buildRoot = path.resolve(__dirname, '..', 'build');
 
 const getContentType = (ext) => {
     switch (ext) {
@@ -16,21 +16,28 @@ const getContentType = (ext) => {
 }
 
 app.get('/**', (req, res) => {
-    const { path } = req;
-    const filePath = path.resolve(buildRoot, path);
+    console.log(`Received Request: ${req.path}`);
+    const filePath = path.join(buildRoot, req.path);
     if (!fs.existsSync(filePath)) {
+        console.error(`Cannot find file: ${filePath}`);
         res.status(404);
+        res.set({
+            'Content-Type': 'text/plain'
+        })
         res.send(`Cannot find file: ${filePath}`);
         return;
     }
 
+    console.log(`Returning file: ${filePath}`);
+
     const extension = path.extname(filePath);
+    const content = fs.readFileSync(filePath, 'utf8');
 
     res.set({
         'Content-Type': getContentType(extension),
         'Cache-Control': 'public, max-age=604800'
     })
-    res.send('Hello World');
+    res.send(content);
 });
 
 app.listen(3001, () => {
