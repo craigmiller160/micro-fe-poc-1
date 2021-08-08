@@ -15,12 +15,12 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'ChildIndex.html')
+            template: path.join(__dirname, 'src', 'SvelteChildIndex.html')
         }),
         new TerserPlugin(),
         new CleanWebpackPlugin()
     ],
-    devSever: {
+    devServer: {
         port: 3002,
         contentBase: path.join(__dirname, 'src'),
         hot: true
