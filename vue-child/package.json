@@ -1,4 +1,7 @@
 {
   "name": "@craigmiller160/micro-fe-poc-1-vue-child",
-  "version": "0.0.1-beta"
+  "version": "0.0.1-beta",
+  "dependencies": {
+    "vue": "^3.1.5"
+  }
 }
