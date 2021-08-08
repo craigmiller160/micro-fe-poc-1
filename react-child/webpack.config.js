@@ -30,7 +30,15 @@ module.exports = {
             },
             {
                 test: /\.(css|scss)$/,
-                use: ["style-loader", "css-loader"],
+                use: [
+                    "style-loader",
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true
+                        }
+                    }
+                ],
             },
             {
                 test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,

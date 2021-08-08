@@ -1,10 +1,14 @@
 import React from 'react';
+import classes from './App.css';
 
 const App = () => (
     <div>
-        <h1>React Parent</h1>
+        <div className={ classes.App }>
+            <h1>React Parent</h1>
+        </div>
         <react-child />
     </div>
+
 );
 
 export default App;

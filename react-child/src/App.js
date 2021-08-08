@@ -1,7 +1,8 @@
 import React from 'react';
+import classes from './App.css';
 
 const App = () => (
-    <div>
+    <div className={ classes.ChildApp }>
         <h1>React Child</h1>
     </div>
 );
