@@ -20,6 +20,13 @@ const getFilePath = (buildRoot, requestPath) => {
     }
 };
 
+const getCacheControl = (requestPath) => {
+    switch (requestPath) {
+        case '/remoteEntry.js': return 'no-cache,no-store';
+        default: return 'public, max-age=604800';
+    }
+};
+
 const createDefaultRoute = (app, buildRoot) => {
     app.get('/**', (req, res) => {
         console.log(`Received Request: ${req.path}`);
@@ -41,7 +48,7 @@ const createDefaultRoute = (app, buildRoot) => {
 
         res.set({
             'Content-Type': getContentType(extension),
-            'Cache-Control': 'public, max-age=604800'
+            'Cache-Control': getCacheControl(req.path)
         })
         res.send(content);
     });
