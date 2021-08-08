@@ -9,3 +9,13 @@ export const setName = (name) => {
 };
 
 export const storeSubscribe = (callback) => subscribe(store, () => callback(snapshot(store)));
+
+export const getState = () => snapshot(store);
+
+window.valtioStore = {
+    getState,
+    storeSubscribe,
+    actions: {
+        setName
+    }
+};
