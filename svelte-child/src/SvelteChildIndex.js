@@ -1,7 +1,4 @@
 import SvelteApp from './SvelteChildApp.svelte';
+import {wrapAndRegisterWebComp} from './createWebComp';
 
-const app = new SvelteApp({
-    target: document.body
-});
-
-export default app;
+wrapAndRegisterWebComp('svelte-child', SvelteApp);
