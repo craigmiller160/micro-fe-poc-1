@@ -1,6 +1,7 @@
 const express = require('express');
 const fs = require('fs');
 const path = require('path');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const getContentType = (ext) => {
     switch (ext) {
@@ -46,9 +47,15 @@ const createDefaultRoute = (app, buildRoot) => {
     });
 };
 
-const startServer = (buildRoot, port) => {
+const startServer = (buildRoot, port, proxyMap = {}) => {
     const app = express();
-    createDefaultRoute(app);
+
+    Object.entries(proxyMap)
+        .forEach(([proxyPath, proxyConfig]) => {
+            app.use(proxyPath, createProxyMiddleware(proxyConfig));
+        });
+
+    createDefaultRoute(app, buildRoot);
 
     app.listen(port, () => {
         console.log(`Listening on port: ${port}`);
