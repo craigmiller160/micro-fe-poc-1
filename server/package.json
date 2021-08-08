@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start:reactChild": "node reactChildServer.js"
+    "start:reactChild": "node reactChildServer.js",
+    "start:reactParent": "node reactParentServer.js"
   },
   "dependencies": {
     "express": "^4.17.1"
