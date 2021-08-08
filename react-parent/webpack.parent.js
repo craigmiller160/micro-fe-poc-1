@@ -29,6 +29,14 @@ module.exports = {
                     '^/reactChild': ''
                 },
                 logLevel: 'debug'
+            },
+            '/svelteChild': {
+                target: 'http://localhost:3001',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/svelteChild': ''
+                },
+                logLevel: 'debug'
             }
         }
     },
@@ -40,7 +48,8 @@ module.exports = {
             name: 'reactParent',
             filename: 'remoteEntry.js',
             remotes: {
-                reactChild: 'reactChild@/reactChild/remoteEntry.js'
+                reactChild: 'reactChild@/reactChild/remoteEntry.js',
+                svelteChild: 'svelteChild@/svelteChild/remoteEntry.js'
             }
         }),
         new TerserPlugin(),

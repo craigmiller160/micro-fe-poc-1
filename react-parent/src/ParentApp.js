@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import classes from './ParentApp.css';
 import ReactChildWrapper from "./ReactChildWrapper";
 import {setName, storeSubscribe} from './store';
+import('svelteChild/SvelteChildWC');
 
 const ParentApp = () => {
     const [state, setState] = useState({
@@ -45,6 +46,7 @@ const ParentApp = () => {
                 state.showReactChild &&
                 <ReactChildWrapper />
             }
+            <svelte-child />
         </div>
     );
 }

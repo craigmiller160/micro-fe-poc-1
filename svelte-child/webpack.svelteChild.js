@@ -17,6 +17,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'SvelteChildIndex.html')
         }),
+        new ModuleFederationPlugin({
+            name: 'svelteChild',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './SvelteChildWC': './src/SvelteChildIndex'
+            }
+        }),
         new TerserPlugin(),
         new CleanWebpackPlugin()
     ],
