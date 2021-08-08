@@ -2,12 +2,14 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: path.join(__dirname, 'src', 'ParentIndex.js'),
     output: {
-        path: path.join(__dirname, 'build')
+        path: path.join(__dirname, 'build'),
+        filename: 'assets/js/[name].[contenthash].js'
     },
     resolve: {
         modules: [
@@ -40,7 +42,8 @@ module.exports = {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js'
             }
         }),
-        new TerserPlugin()
+        new TerserPlugin(),
+        new CleanWebpackPlugin()
     ],
     module: {
         rules: [
