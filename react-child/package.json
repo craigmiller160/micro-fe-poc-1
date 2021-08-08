@@ -6,8 +6,8 @@
     "react-dom": "^17.0.2"
   },
   "scripts": {
-    "build": "webpack",
-    "start": "PORT=3000 webpack serve"
+    "build": "webpack -c webpack.child.js",
+    "start": "PORT=3000 webpack serve -c webpack.child.js"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
