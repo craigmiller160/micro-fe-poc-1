@@ -3,6 +3,7 @@ import classes from './ParentApp.css';
 import ReactChildWrapper from "./ReactChildWrapper";
 import {setName, storeSubscribe} from './store';
 import('svelteChild/SvelteChildWC');
+import('vueChild/VueChildWC');
 
 const ParentApp = () => {
     const [state, setState] = useState({
@@ -47,6 +48,7 @@ const ParentApp = () => {
                 <ReactChildWrapper />
             }
             <svelte-child />
+            <vue-child />
         </div>
     );
 }

@@ -37,6 +37,14 @@ module.exports = {
                     '^/svelteChild': ''
                 },
                 logLevel: 'debug'
+            },
+            '/vueChild': {
+                target: 'http://localhost:3003',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/vueChild': ''
+                },
+                logLevel: 'debug'
             }
         }
     },
@@ -49,7 +57,8 @@ module.exports = {
             filename: 'remoteEntry.js',
             remotes: {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js',
-                svelteChild: 'svelteChild@/svelteChild/remoteEntry.js'
+                svelteChild: 'svelteChild@/svelteChild/remoteEntry.js',
+                vueChild: 'vueChild@/vueChild/remoteEntry.js'
             }
         }),
         new TerserPlugin(),

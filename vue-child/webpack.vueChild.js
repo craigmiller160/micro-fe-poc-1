@@ -16,6 +16,13 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'VueChildIndex.html')
         }),
+        new ModuleFederationPlugin({
+            name: 'vueChild',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './VueChildWC': './src/VueChildIndex'
+            }
+        }),
         new TerserPlugin(),
         new CleanWebpackPlugin(),
         new VueLoaderPlugin()
