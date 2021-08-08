@@ -16,7 +16,17 @@ module.exports = {
     },
     devServer: {
         port: 3000,
-        contentBase: path.join(__dirname, 'src')
+        contentBase: path.join(__dirname, 'src'),
+        proxy: {
+            '/reactChild': {
+                target: 'http://localhost:3001',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/reactChild': ''
+                },
+                logLevel: 'debug'
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -26,7 +36,7 @@ module.exports = {
             name: 'reactParent',
             filename: 'remoteEntry.js',
             remotes: {
-                reactChild: 'reactChild@http://localhost:3001/remoteEntry.js'
+                reactChild: 'reactChild@/reactChild/remoteEntry.js'
             }
         })
     ],
