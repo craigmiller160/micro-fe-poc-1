@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -38,7 +39,8 @@ module.exports = {
             remotes: {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js'
             }
-        })
+        }),
+        new TerserPlugin()
     ],
     module: {
         rules: [

@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+const TerserPlugin = require('terser-webpack-plugin');
 
 const dependencies = require('./package.json').dependencies;
 
@@ -30,7 +31,8 @@ module.exports = {
             exposes: {
                 './ReactChildWC': './src/ChildIndex'
             }
-        })
+        }),
+        new TerserPlugin()
     ],
     module: {
         rules: [
