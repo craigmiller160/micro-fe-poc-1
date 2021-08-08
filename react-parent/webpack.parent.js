@@ -20,6 +20,7 @@ module.exports = {
     devServer: {
         port: 3000,
         contentBase: path.join(__dirname, 'src'),
+        hot: true,
         proxy: {
             '/reactChild': {
                 target: 'http://localhost:3001',
