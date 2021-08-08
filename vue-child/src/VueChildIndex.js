@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
 import VueChildApp from './VueChildApp.vue';
+import {wrapAndRegisterWebComp} from './createWebComp';
 
-createApp(VueChildApp)
-    .mount('#root');
+wrapAndRegisterWebComp('vue-child', VueChildApp);
