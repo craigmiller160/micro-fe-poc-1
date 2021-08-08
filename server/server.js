@@ -12,12 +12,19 @@ const getContentType = (ext) => {
     }
 };
 
+const getFilePath = (buildRoot, requestPath) => {
+    switch (requestPath) {
+        case '/': return path.join(buildRoot, 'index.html');
+        default: return path.join(buildRoot, requestPath);
+    }
+};
+
 const startServer = (buildRoot, port) => {
     const app = express();
 
     app.get('/**', (req, res) => {
         console.log(`Received Request: ${req.path}`);
-        const filePath = path.join(buildRoot, req.path);
+        const filePath = getFilePath(buildRoot, req.path);
         if (!fs.existsSync(filePath)) {
             console.error(`Cannot find file: ${filePath}`);
             res.status(404);
