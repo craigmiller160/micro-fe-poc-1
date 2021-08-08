@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -62,7 +63,10 @@ module.exports = {
             }
         }),
         new TerserPlugin(),
-        new CleanWebpackPlugin()
+        new CleanWebpackPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash].css'
+        })
     ],
     module: {
         rules: [
@@ -74,7 +78,7 @@ module.exports = {
             {
                 test: /\.(css|scss)$/,
                 use: [
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {

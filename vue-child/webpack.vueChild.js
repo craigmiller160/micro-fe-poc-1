@@ -4,6 +4,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -25,7 +26,10 @@ module.exports = {
         }),
         new TerserPlugin(),
         new CleanWebpackPlugin(),
-        new VueLoaderPlugin()
+        new VueLoaderPlugin(),
+        new MiniCssExtractPlugin({
+            filename: 'assets/css/[name].[contenthash].css'
+        })
     ],
     devServer: {
         port: 3003,
@@ -41,7 +45,7 @@ module.exports = {
             {
                 test: /\.(css|scss)$/,
                 use: [
-                    "style-loader",
+                    MiniCssExtractPlugin.loader,
                     'css-loader'
                 ],
             },
