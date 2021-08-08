@@ -5,6 +5,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const dependencies = require('./package.json').dependencies;
 
 module.exports = {
+    mode: process.env.NODE_ENV,
     entry: path.join(__dirname, 'src', 'ChildIndex.js'),
     output: {
         path: path.join(__dirname, 'build')

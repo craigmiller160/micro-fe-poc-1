@@ -3,7 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
 
 module.exports = {
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     entry: path.join(__dirname, 'src', 'ParentIndex.js'),
     output: {
         path: path.join(__dirname, 'build')
