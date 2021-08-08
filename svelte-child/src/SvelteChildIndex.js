@@ -1,4 +1,4 @@
-import SvelteApp from './SvelteApp.svelte';
+import SvelteApp from './SvelteChildApp.svelte';
 
 const app = new SvelteApp({
     target: document.body
