@@ -11,6 +11,14 @@ const proxyMap = {
             '^/reactChild': ''
         },
         logLevel: 'debug'
+    },
+    '/svelteChild': {
+        target: 'http://localhost:3002',
+        changeOrigin: true,
+        pathRewrite: {
+            '^/svelteChild': ''
+        },
+        logLevel: 'debug'
     }
 };
 
