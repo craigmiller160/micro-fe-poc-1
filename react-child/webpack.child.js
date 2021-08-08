@@ -1,5 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+
+const dependencies = require('./package.json').dependencies;
 
 module.exports = {
     entry: path.join(__dirname, 'src', 'ChildIndex.js'),
@@ -19,6 +22,13 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'ChildIndex.html')
+        }),
+        new ModuleFederationPlugin({
+            name: 'reactChild',
+            filename: 'remoteEntry.js',
+            exposes: {
+                './ReactChildWC': './src/ChildIndex'
+            }
         })
     ],
     module: {
