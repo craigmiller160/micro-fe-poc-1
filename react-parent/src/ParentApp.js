@@ -18,6 +18,10 @@ const ParentApp = () => {
         <div>
             <div className={ classes.ParentApp }>
                 <h1>React Parent</h1>
+                <div>
+                    <label htmlFor="name">Name</label>
+                    <input id="name" type="text" />
+                </div>
                 <button onClick={ toggleReactChild }>Toggle React Child</button>
             </div>
             {
