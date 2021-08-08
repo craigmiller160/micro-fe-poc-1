@@ -1,0 +1,7 @@
+{
+  "name": "@craigmiller160/micro-fe-poc-1-svelte-child",
+  "version": "0.0.0-beta",
+  "devDependencies": {
+    "svelte": "^3.42.1"
+  }
+}
