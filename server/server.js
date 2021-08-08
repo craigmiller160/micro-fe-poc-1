@@ -19,9 +19,7 @@ const getFilePath = (buildRoot, requestPath) => {
     }
 };
 
-const startServer = (buildRoot, port) => {
-    const app = express();
-
+const createDefaultRoute = (app, buildRoot) => {
     app.get('/**', (req, res) => {
         console.log(`Received Request: ${req.path}`);
         const filePath = getFilePath(buildRoot, req.path);
@@ -46,6 +44,11 @@ const startServer = (buildRoot, port) => {
         })
         res.send(content);
     });
+};
+
+const startServer = (buildRoot, port) => {
+    const app = express();
+    createDefaultRoute(app);
 
     app.listen(port, () => {
         console.log(`Listening on port: ${port}`);
