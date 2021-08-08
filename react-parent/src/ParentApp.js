@@ -1,14 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import classes from './ParentApp.css';
+import ReactChildWrapper from "./ReactChildWrapper";
 
-const ParentApp = () => (
-    <div>
-        <div className={ classes.ParentApp }>
-            <h1>React Parent</h1>
+const ParentApp = () => {
+    const [state, setState] = useState({
+        showReactChild: false
+    });
+
+    const toggleReactChild = () => setState((prevState) => ({
+        ...prevState,
+        showReactChild: !prevState.showReactChild
+    }));
+
+    console.log('ShowReactChild', state.showReactChild);
+
+    return (
+        <div>
+            <div className={ classes.ParentApp }>
+                <h1>React Parent</h1>
+                <button onClick={ toggleReactChild }>Toggle React Child</button>
+            </div>
+            {
+                state.showReactChild &&
+                <ReactChildWrapper />
+            }
         </div>
-        <react-child />
-    </div>
-
-);
+    );
+}
 
 export default ParentApp;
