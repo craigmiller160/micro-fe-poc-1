@@ -10,10 +10,10 @@ const devTsLoader = {
     test: /\.ts$/,
     use: [
         {
-            loader: 'awesome-typescript-loader',
-            options: {
-                configFileName: path.join(__dirname, 'tsconfig.json')
-            }
+            loader: 'ts-loader',
+            // options: {
+            //     configFileName: path.join(__dirname, 'tsconfig.json')
+            // }
         },
         'angular2-template-loader',
         'angular-router-loader'
@@ -44,10 +44,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'AngularChildIndex.html')
         }),
-        new ngw.AngularWebpackPlugin({
+        process.env.NODE_ENV === 'production' ? new ngw.AngularWebpackPlugin({
             tsConfigPath: path.join(__dirname, 'tsconfig.json')
-            // entryModule: path.join(__dirname, 'src', 'app', 'app.module#AppModule')
-        }),
+        }) : new TerserPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[contenthash].css'
@@ -60,8 +59,7 @@ module.exports = {
     },
     module: {
         rules: [
-            // process.env.NODE_ENV === 'production' ? prodTsLoader : devTsLoader,
-            prodTsLoader,
+            process.env.NODE_ENV === 'production' ? prodTsLoader : devTsLoader,
             {
                 test: /\.html$/,
                 loader: 'html-loader'
