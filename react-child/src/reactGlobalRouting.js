@@ -1,6 +1,6 @@
 
 export default (history) => {
-    history.listen((location) => {
+    const unsubscribe = history.listen((location) => {
         console.log('ReactGlobalListener', location.pathname);
     });
 };

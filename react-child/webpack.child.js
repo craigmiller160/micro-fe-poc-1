@@ -36,7 +36,6 @@ module.exports = {
                 './ReactChildWC': './src/ChildIndex'
             },
             shared: {
-                // TODO get the versions from dependencies
                 react: {
                     singleton: true,
                     requiredVersion: deps.react
