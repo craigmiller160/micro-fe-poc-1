@@ -1,4 +1,18 @@
-.TopSectionH1 {
+.TopSection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.TopSection > h1 {
+    width: 100%;
+    text-align: center;
     background-color: blue;
     color: white;
+}
+
+.TopSection > .content {
+    width: 10%;
+    display: flex;
+    flex-direction: column;
 }

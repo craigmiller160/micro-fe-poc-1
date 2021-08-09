@@ -3,9 +3,9 @@ import classes from './TopSection.css';
 
 const TopSection = (props) => {
     return (
-        <div>
-            <h1 className={ classes.TopSectionH1 }>React Parent</h1>
-            <div>
+        <div className={ classes.TopSection }>
+            <h1>React Parent</h1>
+            <div className={ classes.content }>
                 <label htmlFor="name">Name</label>
                 <input
                     id="name"
@@ -13,9 +13,7 @@ const TopSection = (props) => {
                     value={ props.name }
                     onChange={ (event) => props.setName(event.target.value) }
                 />
-                <div className={ classes.ParentApp }>
-                    <button onClick={ toggleReactChild }>Toggle React Child</button>
-                </div>
+                <button onClick={ props.toggleReactChild }>Toggle React Child</button>
             </div>
         </div>
     );

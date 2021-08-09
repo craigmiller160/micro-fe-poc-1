@@ -35,6 +35,7 @@ const ParentApp = () => {
             <TopSection
                 name={ state.name }
                 setName={ setName }
+                toggleReactChild={ toggleReactChild }
             />
             <BottomSection
                 showReactChild={ state.showReactChild }

@@ -5,7 +5,7 @@ const BottomSection = (props) => {
     return (
         <div className={ classes.BottomSection }>
             {
-                props.showReactChild **
+                props.showReactChild &&
                 <react-child />
             }
             <svelte-child />
