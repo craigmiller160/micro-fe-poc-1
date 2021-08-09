@@ -4,7 +4,7 @@
 
 <style>
     .Page > h3 {
-        color: yellow;
+        background-color: yellow;
     }
 </style>
 
