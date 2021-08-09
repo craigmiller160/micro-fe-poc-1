@@ -1,13 +1,14 @@
 <script>
     import {onDestroy, onMount} from 'svelte';
     import { globalHistory } from 'svelte-routing/src/history';
+    import { navigate } from 'svelte-routing';
 
     let historyUnsubscribe;
     let dispatching = false;
 
     const globalRouterListener = (event) => {
         if (!dispatching) {
-            // TODO how to change route in svelte?
+            navigate(event.detail.pathname);
         } else {
             dispatching = false;
         }
@@ -15,7 +16,6 @@
 
     onMount(() => {
         historyUnsubscribe = globalHistory.listen((history) => {
-            console.log('SvelteListen', history.location.pathname);
             const event = new CustomEvent('microFrontendGlobalRouter', {
                 detail: {
                     pathname: history.location.pathname

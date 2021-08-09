@@ -15,9 +15,9 @@
 </style>
 
 <div class="SvelteChild">
-    <GlobalRouting />
     <h1>Svelte Child</h1>
     <Router>
+        <GlobalRouting />
         <Pager />
     </Router>
 </div>
