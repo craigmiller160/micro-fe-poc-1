@@ -5,18 +5,25 @@ export default () => {
     const history = useHistory();
     useEffect(() => {
         let dispatching = false;
+        let currentPathname = '';
+
         const historyUnsubscribe = history.listen((location) => {
-            const event = new CustomEvent('microFrontendGlobalRouter', {
-                detail: {
-                    pathname: location.pathname
-                }
-            });
-            dispatching = true;
-            window.dispatchEvent(event);
+            if (currentPathname !== location.pathname) {
+                console.log('ReactListen', currentPathname, location.pathname); // TODO delete this
+                const event = new CustomEvent('microFrontendGlobalRouter', {
+                    detail: {
+                        pathname: location.pathname
+                    }
+                });
+                dispatching = true;
+                window.dispatchEvent(event);
+            }
+            currentPathname = location.pathname;
         });
 
         const globalRouterListener = (event) => {
             if (!dispatching) {
+                currentPathname = event.detail.pathname;
                 history.push(event.detail.pathname);
             } else {
                 dispatching = false;

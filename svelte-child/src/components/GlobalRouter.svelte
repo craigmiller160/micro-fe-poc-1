@@ -9,6 +9,7 @@
 
     const globalRouterListener = (event) => {
         if (!dispatching) {
+            currentPathname = event.detail.pathname;
             navigate(event.detail.pathname);
         } else {
             dispatching = false;

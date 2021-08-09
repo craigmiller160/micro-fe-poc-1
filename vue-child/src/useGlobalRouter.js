@@ -23,8 +23,9 @@ const useGlobalRouter = () => {
                     pathname: newValue.path
                 }
             });
-            dispatching = true;
-            window.dispatchEvent(event);
+            // dispatching = true;
+            // TODO restore this
+            // window.dispatchEvent(event);
         });
         window.addEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
