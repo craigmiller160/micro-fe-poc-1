@@ -7,8 +7,7 @@
 
 <script>
 import Pager from './Pager.vue';
-import {useRoute, useRouter} from 'vue-router';
-import {watch} from 'vue';
+import useGlobalRouter from '../useGlobalRouter';
 
 export default {
   name: "VueChildApp",
@@ -16,11 +15,7 @@ export default {
     Pager
   },
   setup() {
-    const router = useRouter();
-    const route = useRoute();
-
-    // TODO leverage this
-    watch(route, (newValue, oldValue) => console.log('VueWatch', newValue.fullPath));
+    useGlobalRouter();
   }
 }
 </script>
