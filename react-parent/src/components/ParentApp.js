@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import classes from './ParentApp.css';
-import ReactChildWrapper from "../ReactChildWrapper";
+import ReactChildWrapper from "./wrapper/ReactChildWrapper";
 import {setName, storeSubscribe} from '../store';
 import TopSection from './sections/TopSection';
 import BottomSection from './sections/BottomSection';
