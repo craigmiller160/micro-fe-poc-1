@@ -45,7 +45,7 @@ module.exports = {
         }),
         process.env.NODE_ENV === 'production' ? new ngw.AngularCompilerPlugin({
             tsConfigPath: path.join(__dirname, 'tsconfig.json'),
-            entryModule: path.join('src', 'app', 'app.module#AppModule')
+            entryModule: path.join(__dirname, 'src', 'app', 'app.module#AppModule')
         }) : new TerserPlugin(),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
