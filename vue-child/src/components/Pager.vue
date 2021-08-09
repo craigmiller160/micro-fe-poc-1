@@ -2,13 +2,13 @@
   <div class="Pager">
     <div class="Buttons">
       <router-link to="/page/1">
-        <button>Page 1</button>
+        <button :class="btnClasses1">Page 1</button>
       </router-link>
       <router-link to="/page/2">
-        <button>Page 2</button>
+        <button :class="btnClasses2">Page 2</button>
       </router-link>
       <router-link to="/page/3">
-        <button>Page 3</button>
+        <button :class="btnClasses3">Page 3</button>
       </router-link>
     </div>
     <router-view />
@@ -17,11 +17,39 @@
 
 <script>
 import {computed} from 'vue';
+import {useRoute} from 'vue-router';
 
 export default {
   name: "Pager",
   setup() {
+    const route = useRoute();
 
+    const btnClasses1 = computed(() => {
+      if (route.params.number === '1') {
+        return 'active';
+      }
+      return '';
+    });
+
+    const btnClasses2 = computed(() => {
+      if (route.params.number === '2') {
+        return 'active';
+      }
+      return '';
+    });
+
+    const btnClasses3 = computed(() => {
+      if (route.params.number === '3') {
+        return 'active';
+      }
+      return '';
+    });
+
+    return {
+      btnClasses1,
+      btnClasses2,
+      btnClasses3
+    };
   }
 }
 </script>
@@ -45,6 +73,6 @@ export default {
   }
 
   .Pager button.active {
-    background-color: green;
+    background-color: orange;
   }
 </style>
