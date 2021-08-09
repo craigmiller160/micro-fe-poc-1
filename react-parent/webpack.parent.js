@@ -5,6 +5,8 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const deps = require('./package.json').dependencies;
+
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: path.join(__dirname, 'src', 'ParentIndex.js'),
@@ -64,6 +66,20 @@ module.exports = {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js',
                 svelteChild: 'svelteChild@/svelteChild/remoteEntry.js',
                 vueChild: 'vueChild@/vueChild/remoteEntry.js'
+            },
+            exposes: {},
+            shared: {
+                // TODO try ditching eager
+                react: {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: deps.react
+                },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: deps.react
+                }
             }
         }),
         new TerserPlugin(),

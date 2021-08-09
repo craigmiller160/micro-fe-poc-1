@@ -6,6 +6,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const { VueLoaderPlugin } = require('vue-loader');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+const deps = require('./package.json').dependencies;
+
 module.exports = {
     mode: process.env.NODE_ENV,
     entry: path.join(__dirname, 'src', 'VueChildIndex.js'),
@@ -22,6 +24,12 @@ module.exports = {
             filename: 'remoteEntry.js',
             exposes: {
                 './VueChildWC': './src/VueChildIndex'
+            },
+            shared: {
+                vue: {
+                    singleton: true,
+                    requiredVersion: deps.vue
+                }
             }
         }),
         new TerserPlugin(),

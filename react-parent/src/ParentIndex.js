@@ -1,5 +1,2 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import ParentApp from "./components/ParentApp";
-
-ReactDOM.render(<ParentApp />, document.querySelector('#root'));
+// Super important to avoid errors when sharing dependencies with children
+import('./ParentBootstrap');

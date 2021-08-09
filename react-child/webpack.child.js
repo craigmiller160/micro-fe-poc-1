@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const dependencies = require('./package.json').dependencies;
+const deps = require('./package.json').dependencies;
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -34,6 +34,17 @@ module.exports = {
             filename: 'remoteEntry.js',
             exposes: {
                 './ReactChildWC': './src/ChildIndex'
+            },
+            shared: {
+                // TODO get the versions from dependencies
+                react: {
+                    singleton: true,
+                    requiredVersion: deps.react
+                },
+                'react-dom': {
+                    singleton: true,
+                    requiredVersion: deps['react-dom']
+                }
             }
         }),
         new TerserPlugin(),

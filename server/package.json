@@ -5,7 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start:reactChild": "node reactChildServer.js",
-    "start:reactParent": "node reactParentServer.js"
+    "start:reactParent": "node reactParentServer.js",
+    "start:vueChild": "node vueChildServer.js",
+    "start:svelteChild": "node svelteChildServer.js"
   },
   "dependencies": {
     "express": "^4.17.1",
