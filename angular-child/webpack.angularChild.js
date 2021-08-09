@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ngw = require('@ngtools/webpack');
-const {AngularWebpackPlugin} = require('@ngtools/webpack');
 
 const devTsLoader = {
     test: /\.ts$/,
