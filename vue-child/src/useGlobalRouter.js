@@ -1,28 +1,35 @@
-import {useRoute} from 'vue-router';
+import {useRoute, useRouter} from 'vue-router';
 import {onMounted, onUnmounted, watch} from 'vue';
 
 const useGlobalRouter = () => {
     const route = useRoute();
-    let unsubscribe;
+    const router = useRouter();
+    let routeUnsubscribe;
+    let dispatching = false;
 
     const globalRouterListener = (event) => {
-        console.log('VueReceivedEvent', event);
+        if (!dispatching) {
+            router.push(event.detail.pathname);
+        } else {
+            dispatching = false;
+        }
     };
 
     onMounted(() => {
-        unsubscribe = watch(route, (newValue, oldValue) => {
+        routeUnsubscribe = watch(route, (newValue, oldValue) => {
             const event = new CustomEvent('microFrontendGlobalRouter', {
                 detail: {
                     pathname: location.pathname
                 }
             });
+            dispatching = true;
             window.dispatchEvent(event);
         });
         window.addEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
 
     onUnmounted(() => {
-        unsubscribe();
+        routeUnsubscribe();
         window.removeEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
 };
