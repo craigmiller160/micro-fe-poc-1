@@ -4,6 +4,7 @@ import {onMounted, onUnmounted, watch} from 'vue';
 const useGlobalRouter = () => {
     const route = useRoute();
     const router = useRouter();
+    // TODO make sure that rendering doesn't screw up these variables
     let routeUnsubscribe;
     let dispatching = false;
     let currentPathname = '';

@@ -3,6 +3,7 @@
     import { globalHistory } from 'svelte-routing/src/history';
     import { navigate } from 'svelte-routing';
 
+    // TODO make sure that rendering doesn't screw up these variables
     let historyUnsubscribe;
     let dispatching = false;
     let currentPathname = '';
