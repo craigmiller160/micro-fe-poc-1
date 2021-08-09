@@ -3,15 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ngw                     = require('@ngtools/webpack');
+const ngw = require('@ngtools/webpack');
 
 const devTsLoader = {
     test: /\.ts$/,
-    loaders: [
+    use: [
         {
             loader: 'awesome-typescript-loader',
             options: {
-                configFileName: helpers.root('tsconfig.json')
+                configFileName: path.join(__dirname, 'tsconfig.json')
             }
         },
         'angular2-template-loader',
