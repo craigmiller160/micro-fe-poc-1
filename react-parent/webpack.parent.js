@@ -60,6 +60,19 @@ module.exports = {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js',
                 svelteChild: 'svelteChild@/svelteChild/remoteEntry.js',
                 vueChild: 'vueChild@/vueChild/remoteEntry.js'
+            },
+            shared: {
+                // TODO get the versions from dependencies
+                react: {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: '^17.0.2'
+                },
+                'react-dom': {
+                    eager: true,
+                    singleton: true,
+                    requiredVersion: '^17.0.2'
+                }
             }
         }),
         new TerserPlugin(),

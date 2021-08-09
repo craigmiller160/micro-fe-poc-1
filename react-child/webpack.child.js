@@ -37,14 +37,14 @@ module.exports = {
             },
             shared: {
                 // TODO get the versions from dependencies
-                // react: {
-                //     singleton: true,
-                //     requiredVersion: '^17.0.2'
-                // },
-                // 'react-dom': {
-                //     singleton: true,
-                //     requiredVersion: '^17.0.2'
-                // }
+                react: {
+                    singleton: true,
+                    requiredVersion: '^17.0.2'
+                },
+                'react-dom': {
+                    singleton: true,
+                    requiredVersion: '^17.0.2'
+                }
             }
         }),
         new TerserPlugin(),
