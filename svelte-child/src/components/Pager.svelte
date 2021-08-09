@@ -9,7 +9,6 @@
 
     onMount(() => {
         unsubscribe = globalHistory.listen((arg) => {
-            console.log('SvelteListen', arg);
             pathname = arg.location.pathname;
         });
     });
