@@ -17,9 +17,10 @@ const useGlobalRouter = () => {
 
     onMounted(() => {
         routeUnsubscribe = watch(route, (newValue, oldValue) => {
+            // Despite not having a pathname check here, there does not appear to be an infinite loop situation
             const event = new CustomEvent('microFrontendGlobalRouter', {
                 detail: {
-                    pathname: location.pathname
+                    pathname: newValue.path
                 }
             });
             dispatching = true;
