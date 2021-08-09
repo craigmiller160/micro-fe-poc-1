@@ -1,8 +1,10 @@
 import React, {useEffect, useState} from 'react';
 import classes from './ChildApp.css';
 import Pager from './Pager';
+import useGlobalRouter from '../useGlobalRouter';
 
 const ChildApp = () => {
+    useGlobalRouter();
     const [state, setState] = useState({
         name: window.valtioStore.getState().name
     })

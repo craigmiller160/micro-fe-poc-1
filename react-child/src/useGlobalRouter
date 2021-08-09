@@ -1,0 +1,15 @@
+import {useHistory} from 'react-router';
+import {useEffect} from 'react';
+
+export default () => {
+    const history = useHistory();
+    useEffect(() => {
+        const unsubscribe = history.listen((location) => {
+            console.log('ReactGlobalListener', location.pathname);
+        });
+
+        return () => {
+            unsubscribe();
+        };
+    }, []);
+};
