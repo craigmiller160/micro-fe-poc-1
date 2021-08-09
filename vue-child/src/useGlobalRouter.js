@@ -5,11 +5,26 @@ const useGlobalRouter = () => {
     const route = useRoute();
     let unsubscribe;
 
+    const globalRouterListener = (event) => {
+        console.log('VueReceivedEvent', event);
+    };
+
     onMounted(() => {
-        unsubscribe = watch(route, (newValue, oldValue) => console.log('VueWatch2', newValue.fullPath));
+        unsubscribe = watch(route, (newValue, oldValue) => {
+            const event = new CustomEvent('microFrontendGlobalRouter', {
+                detail: {
+                    pathname: location.pathname
+                }
+            });
+            window.dispatchEvent(event);
+        });
+        window.addEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
 
-    onUnmounted(() => unsubscribe());
+    onUnmounted(() => {
+        unsubscribe();
+        window.removeEventListener('microFrontendGlobalRouter', globalRouterListener, true);
+    });
 };
 
 export default useGlobalRouter;
