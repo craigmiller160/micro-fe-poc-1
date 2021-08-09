@@ -3,7 +3,9 @@
   "version": "0.0.1-beta",
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0",
+    "react-router-dom": "^5.2.0"
   },
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack -c webpack.child.js",
