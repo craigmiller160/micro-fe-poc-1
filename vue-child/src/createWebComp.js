@@ -1,8 +1,5 @@
-import { createApp } from 'vue';
-
-const createWebComp = (VueComp) => class extends HTMLElement {
+const createWebComp = (vueApp) => class extends HTMLElement {
     connected = false;
-    app = undefined;
 
     connectedCallback() {
         this.connected = true
@@ -17,14 +14,11 @@ const createWebComp = (VueComp) => class extends HTMLElement {
 
     disconnectedCallback() {
         this.connected = false
-        if (this.app) {
-            this.app.unmount();
-        }
+        vueApp.unmount();
     }
 
     render() {
-        this.app = createApp(VueComp);
-        this.app.mount(this);
+        vueApp.mount(this);
     }
 };
 

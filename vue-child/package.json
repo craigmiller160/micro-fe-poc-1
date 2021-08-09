@@ -6,7 +6,8 @@
     "build": "cross-env NODE_ENV=production webpack -c webpack.vueChild.js"
   },
   "dependencies": {
-    "vue": "^3.1.5"
+    "vue": "^3.1.5",
+    "vue-router": "4"
   },
   "devDependencies": {
     "@vue/compiler-sfc": "^3.1.5",
