@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ngw = require('@ngtools/webpack');
+const {AngularWebpackPlugin} = require('@ngtools/webpack');
 
 const devTsLoader = {
     test: /\.ts$/,
@@ -43,10 +44,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: path.join(__dirname, 'src', 'AngularChildIndex.html')
         }),
-        process.env.NODE_ENV === 'production' ? new ngw.AngularCompilerPlugin({
-            tsConfigPath: path.join(__dirname, 'tsconfig.json'),
-            entryModule: path.join(__dirname, 'src', 'app', 'app.module#AppModule')
-        }) : new TerserPlugin(),
+        new ngw.AngularWebpackPlugin({
+            tsConfigPath: path.join(__dirname, 'tsconfig.json')
+            // entryModule: path.join(__dirname, 'src', 'app', 'app.module#AppModule')
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[contenthash].css'
@@ -59,7 +60,8 @@ module.exports = {
     },
     module: {
         rules: [
-            process.env.NODE_ENV === 'production' ? prodTsLoader : devTsLoader,
+            // process.env.NODE_ENV === 'production' ? prodTsLoader : devTsLoader,
+            prodTsLoader,
             {
                 test: /\.html$/,
                 loader: 'html-loader'

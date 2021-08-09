@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@angular/common@^12.2.0":
+  version "12.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/common/-/common-12.2.0.tgz#b8bb889f310ae2af359120e110634cf356a6d142"
+  integrity sha512-9OaqH5WhfJ/YpN9b4TmiGHdOar/3NiGjktwG1/5jV4mTO+tOP25yNO4zCd4RuaRURipWUEa8mSaesgUgTb3jmQ==
+  dependencies:
+    tslib "^2.2.0"
+
 "@angular/compiler-cli@^12.2.0":
   version "12.2.0"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/compiler-cli/-/compiler-cli-12.2.0.tgz#af6c653ed7ae3f0555eb8c8062faa6523ac67f12"
@@ -40,6 +47,13 @@
   version "12.2.0"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/platform-browser-dynamic/-/platform-browser-dynamic-12.2.0.tgz#d6d882129b5a0cf201c50f0839e5b434e822f0b0"
   integrity sha512-mvUo1WEI8PrJxIer0RLXSW9raYDrKarUQ9T2Q0/R3ZgS6Y1WvoJe+qSZ7K/hCbErH4zd+64TuJHlj+g2WHPLug==
+  dependencies:
+    tslib "^2.2.0"
+
+"@angular/platform-browser@^12.2.0":
+  version "12.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/platform-browser/-/platform-browser-12.2.0.tgz#d3d01602e331ace3752111e7e64efc9c4a10e561"
+  integrity sha512-MIoWBhhMmPBFfuOPBgEG21uqCZVudTj4YMGxQH4iVlI9GD9ZAht8XgopN9Vw4cytPNfKWsspLoruhIWRNSJlNA==
   dependencies:
     tslib "^2.2.0"
 
