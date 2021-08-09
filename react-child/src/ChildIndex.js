@@ -1,12 +1,17 @@
 import React from 'react';
 import ChildApp from "./components/ChildApp";
 import {wrapAndRegisterWebComp} from "./createWebComp";
-import {BrowserRouter} from 'react-router-dom';
+import { createBrowserHistory } from 'history';
+import {Router} from 'react-router';
+
+// TODO leverage this somehow
+const history = createBrowserHistory();
+history.listen((arg) => console.log('Listening', arg));
 
 const Wrapper = () => (
-    <BrowserRouter>
+    <Router history={ history }>
         <ChildApp />
-    </BrowserRouter>
+    </Router>
 );
 
 wrapAndRegisterWebComp('react-child', Wrapper);
