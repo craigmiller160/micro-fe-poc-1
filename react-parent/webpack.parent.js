@@ -61,6 +61,7 @@ module.exports = {
                 svelteChild: 'svelteChild@/svelteChild/remoteEntry.js',
                 vueChild: 'vueChild@/vueChild/remoteEntry.js'
             },
+            exposes: {},
             shared: {
                 // TODO get the versions from dependencies
                 react: {
