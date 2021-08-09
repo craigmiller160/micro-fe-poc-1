@@ -1,7 +1,7 @@
 <script>
     import { Router } from 'svelte-routing';
     import Pager from './Pager.svelte';
-    import GlobalRouting from './GlobalRouting.svelte';
+    import GlobalRouting from './GlobalRouter.svelte';
 </script>
 
 <style>
