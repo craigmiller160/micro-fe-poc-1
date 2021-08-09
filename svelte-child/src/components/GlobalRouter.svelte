@@ -5,6 +5,7 @@
 
     let historyUnsubscribe;
     let dispatching = false;
+    let currentPathname = '';
 
     const globalRouterListener = (event) => {
         if (!dispatching) {
@@ -16,13 +17,16 @@
 
     onMount(() => {
         historyUnsubscribe = globalHistory.listen((history) => {
-            const event = new CustomEvent('microFrontendGlobalRouter', {
-                detail: {
-                    pathname: history.location.pathname
-                }
-            });
-            dispatching = true;
-            window.dispatchEvent(event);
+            if (currentPathname !== history.location.pathname) {
+                const event = new CustomEvent('microFrontendGlobalRouter', {
+                    detail: {
+                        pathname: history.location.pathname
+                    }
+                });
+                dispatching = true;
+                window.dispatchEvent(event);
+            }
+            currentPathname = history.location.pathname;
         });
         window.addEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
