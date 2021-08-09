@@ -3,10 +3,10 @@ import ChildApp from "./components/ChildApp";
 import {wrapAndRegisterWebComp} from "./createWebComp";
 import { createBrowserHistory } from 'history';
 import {Router} from 'react-router';
+import reactGlobalRouting from './reactGlobalRouting';
 
-// TODO leverage this
 const history = createBrowserHistory();
-history.listen((arg) => console.log('ReactListen', arg));
+reactGlobalRouting(history);
 
 const Wrapper = () => (
     <Router history={ history }>
