@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import classes from './ChildApp.css';
+import Pager from './Pager';
 
 const ChildApp = () => {
     const [state, setState] = useState({
@@ -25,6 +26,7 @@ const ChildApp = () => {
                 <strong>Name: </strong>
                 <span>{ state.name }</span>
             </p>
+            <Pager />
         </div>
     );
 };
