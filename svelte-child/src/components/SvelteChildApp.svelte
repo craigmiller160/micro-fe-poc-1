@@ -1,5 +1,9 @@
 <style>
     .SvelteChild {
+        border: 1px solid black;
+    }
+
+    .SvelteChild > h1 {
         background-color: yellow;
     }
 </style>
