@@ -9,7 +9,6 @@ export default () => {
 
         const historyUnsubscribe = history.listen((location) => {
             if (currentPathname !== location.pathname) {
-                console.log('ReactListen', currentPathname, location.pathname); // TODO delete this
                 const event = new CustomEvent('microFrontendGlobalRouter', {
                     detail: {
                         pathname: location.pathname

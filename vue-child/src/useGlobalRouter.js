@@ -6,9 +6,11 @@ const useGlobalRouter = () => {
     const router = useRouter();
     let routeUnsubscribe;
     let dispatching = false;
+    let currentPathname = '';
 
     const globalRouterListener = (event) => {
         if (!dispatching) {
+            currentPathname = event.detail.pathname;
             router.push(event.detail.pathname);
         } else {
             dispatching = false;
@@ -17,15 +19,16 @@ const useGlobalRouter = () => {
 
     onMounted(() => {
         routeUnsubscribe = watch(route, (newValue, oldValue) => {
-            // Despite not having a pathname check here, there does not appear to be an infinite loop situation
-            const event = new CustomEvent('microFrontendGlobalRouter', {
-                detail: {
-                    pathname: newValue.path
-                }
-            });
-            // dispatching = true;
-            // TODO restore this
-            // window.dispatchEvent(event);
+            if (currentPathname !== newValue.path) {
+                const event = new CustomEvent('microFrontendGlobalRouter', {
+                    detail: {
+                        pathname: newValue.path
+                    }
+                });
+                dispatching = true;
+                window.dispatchEvent(event);
+            }
+            currentPathname = newValue.path;
         });
         window.addEventListener('microFrontendGlobalRouter', globalRouterListener, true);
     });
