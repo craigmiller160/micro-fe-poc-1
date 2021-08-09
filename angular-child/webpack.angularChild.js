@@ -27,5 +27,29 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: 'assets/css/[name].[contenthash].css'
         })
-    ]
+    ],
+    devServer: {
+        port: 3004,
+        contentBase: path.join(__dirname, 'src'),
+        hot: true
+    },
+    module: {
+        rules: [
+            {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
+                test: /\.(css|scss)$/,
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader'
+                ],
+            },
+            {
+                test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+                use: ["file-loader"]
+            },
+        ]
+    }
 };
