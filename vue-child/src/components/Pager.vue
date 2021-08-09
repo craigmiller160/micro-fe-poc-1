@@ -1,10 +1,17 @@
 <template>
   <div class="Pager">
     <div class="Buttons">
-      <button>Page 1</button>
-      <button>Page 2</button>
-      <button>Page 3</button>
+      <router-link to="/page/1">
+        <button>Page 1</button>
+      </router-link>
+      <router-link to="/page/2">
+        <button>Page 2</button>
+      </router-link>
+      <router-link to="/page/3">
+        <button>Page 3</button>
+      </router-link>
     </div>
+    <router-view />
   </div>
 </template>
 

@@ -10,7 +10,8 @@ module.exports = {
     entry: path.join(__dirname, 'src', 'ParentIndex.js'),
     output: {
         path: path.join(__dirname, 'build'),
-        filename: 'assets/js/[name].[contenthash].js'
+        filename: 'assets/js/[name].[contenthash].js',
+        publicPath: '/'
     },
     resolve: {
         modules: [
@@ -22,6 +23,9 @@ module.exports = {
         port: 3000,
         contentBase: path.join(__dirname, 'src'),
         hot: true,
+        historyApiFallback: {
+            index: '/'
+        },
         proxy: {
             '/reactChild': {
                 target: 'http://localhost:3001',
