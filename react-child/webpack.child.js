@@ -5,7 +5,7 @@ const TerserPlugin = require('terser-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const dependencies = require('./package.json').dependencies;
+const deps = require('./package.json').dependencies;
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -39,11 +39,11 @@ module.exports = {
                 // TODO get the versions from dependencies
                 react: {
                     singleton: true,
-                    requiredVersion: '^17.0.2'
+                    requiredVersion: deps.react
                 },
                 'react-dom': {
                     singleton: true,
-                    requiredVersion: '^17.0.2'
+                    requiredVersion: deps['react-dom']
                 }
             }
         }),
