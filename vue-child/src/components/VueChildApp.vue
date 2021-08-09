@@ -12,6 +12,10 @@ export default {
 
 <style scoped>
   .VueChild {
+    border: 1px solid black;
+  }
+
+  .VueChild > h1 {
     background-color: orange;
   }
 </style>
