@@ -1,4 +1,9 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+// const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPlugin");
+// const TerserPlugin = require('terser-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: process.env.NODE_ENV,
@@ -11,6 +16,17 @@ module.exports = {
         extensions: [
             '.ts', '.js'
         ]
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            template: path.join(__dirname, 'src', 'AngularChildIndex.html')
+        }),
+        new CleanWebpackPlugin()
+    ],
+    devServer: {
+        port: 3005,
+        contentBase: path.join(__dirname, 'src'),
+        hot: true
     },
     module: {
         rules: [
