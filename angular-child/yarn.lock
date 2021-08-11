@@ -2,6 +2,27 @@
 # yarn lockfile v1
 
 
+"@angular/core@^12.2.0":
+  version "12.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/core/-/core-12.2.0.tgz#29869aec3f624f6d4e1b5eedc25475cd5235a2e8"
+  integrity sha512-zy/gqSlSEmi85HVbpoQ0nhC74xoL+aoofvbkKPgdgyEcnqzBt4IFzH++0EZ+GMeZ2pVoNfiXklUhAy2OBAiR/g==
+  dependencies:
+    tslib "^2.2.0"
+
+"@angular/platform-browser-dynamic@^12.2.0":
+  version "12.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/platform-browser-dynamic/-/platform-browser-dynamic-12.2.0.tgz#d6d882129b5a0cf201c50f0839e5b434e822f0b0"
+  integrity sha512-mvUo1WEI8PrJxIer0RLXSW9raYDrKarUQ9T2Q0/R3ZgS6Y1WvoJe+qSZ7K/hCbErH4zd+64TuJHlj+g2WHPLug==
+  dependencies:
+    tslib "^2.2.0"
+
+"@angular/platform-browser@^12.2.0":
+  version "12.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@angular/platform-browser/-/platform-browser-12.2.0.tgz#d3d01602e331ace3752111e7e64efc9c4a10e561"
+  integrity sha512-MIoWBhhMmPBFfuOPBgEG21uqCZVudTj4YMGxQH4iVlI9GD9ZAht8XgopN9Vw4cytPNfKWsspLoruhIWRNSJlNA==
+  dependencies:
+    tslib "^2.2.0"
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.3"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/@discoveryjs/json-ext/-/json-ext-0.5.3.tgz#90420f9f9c6d3987f176a19a7d8e764271a2f55d"
@@ -812,6 +833,11 @@ ts-loader@^9.2.5:
     micromatch "^4.0.0"
     semver "^7.3.4"
 
+tslib@^2.0.0, tslib@^2.2.0:
+  version "2.3.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/tslib/-/tslib-2.3.0.tgz#803b8cdab3e12ba581a4ca41c8839bbb0dacb09e"
+  integrity sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==
+
 typescript@^4.3.5:
   version "4.3.5"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
@@ -920,3 +946,10 @@ yocto-queue@^0.1.0:
   version "0.1.0"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/yocto-queue/-/yocto-queue-0.1.0.tgz#0294eb3dee05028d31ee1a5fa2c556a6aaf10a1b"
   integrity sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==
+
+zone.js@^0.11.4:
+  version "0.11.4"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/zone.js/-/zone.js-0.11.4.tgz#0f70dcf6aba80f698af5735cbb257969396e8025"
+  integrity sha512-DDh2Ab+A/B+9mJyajPjHFPWfYU1H+pdun4wnnk0OcQTNjem1XQSZ2CDW+rfZEUDjv5M19SBqAkjZi0x5wuB5Qw==
+  dependencies:
+    tslib "^2.0.0"
