@@ -1,0 +1,8 @@
+{
+  "name": "@craigmiller160/micro-fe-poc-1-angular-child",
+  "version": "0.0.1-beta",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development webpack server -c webpack.vueChild.js",
+    "build": "cross-env NODE_ENV=production webpack -c webpack.vueChild.js"
+  }
+}
