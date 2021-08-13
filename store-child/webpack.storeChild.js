@@ -18,12 +18,6 @@ module.exports = {
             filename: 'remoteEntry.js',
             exposes: {
                 './StoreChildWC': './src/StoreChildIndex'
-            },
-            shared: {
-                vue: {
-                    singleton: true,
-                    requiredVersion: deps.vue
-                }
             }
         }),
         new TerserPlugin(),
