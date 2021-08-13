@@ -8,8 +8,8 @@
     "react-router-dom": "^5.2.0"
   },
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack -c webpack.child.js",
-    "start": "cross-env NODE_ENV=development webpack serve -c webpack.child.js",
+    "build": "cross-env NODE_ENV=production webpack -c webpack.reactChild.js",
+    "start": "cross-env NODE_ENV=development webpack serve -c webpack.reactChild.js",
     "start:prod": "yarn build && node ./server/reactChildServer.js"
   },
   "devDependencies": {
