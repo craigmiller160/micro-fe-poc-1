@@ -1,13 +1,21 @@
-import {proxy, snapshot, subscribe} from 'valtio';
+import produce from 'immer';
+import {nanoid} from 'nanoid';
 
-const store = proxy({
-    name: ''
-});
+let state = Object.freeze({});
+const subscriptions = {};
 
-export const setName = (name) => {
-    store.name = name;
+export const getState = () => state;
+
+export const updateState = (updateFn) => {
+    state = produce(state, updateFn);
+    Object.values(subscriptions)
+        .forEach((subscription) => subscription(state));
 };
 
-export const storeSubscribe = (callback) => subscribe(store, () => callback(snapshot(store)));
-
-export const getState = () => snapshot(store);
+export const subscribe = (subscription) => {
+    const subscriptionKey = nanoid();
+    subscriptions[subscriptionKey] = subscription;
+    return () => {
+        delete subscriptions[subscriptionKey];
+    };
+};
