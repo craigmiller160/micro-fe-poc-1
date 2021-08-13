@@ -6,18 +6,20 @@ import useGlobalRouter from '../useGlobalRouter';
 const ChildApp = () => {
     useGlobalRouter();
     const [state, setState] = useState({
-        name: window.valtioStore.getState().name
+        name: window.valtioStore?.getState()?.name ?? ''
     })
 
     useEffect(() => {
-        const unsubscribe = window.valtioStore.storeSubscribe((state) => {
+        const unsubscribe = window.valtioStore?.storeSubscribe((state) => {
             setState((prevState) => ({
                 ...prevState,
                 name: state.name
             }));
         });
         return () => {
-            unsubscribe();
+            if (unsubscribe) {
+                unsubscribe();
+            }
         };
     }, []);
 
