@@ -1,5 +1,7 @@
 import {proxy, snapshot, subscribe} from 'valtio';
 
+// TODO delete this file
+
 const store = proxy({
     name: ''
 });

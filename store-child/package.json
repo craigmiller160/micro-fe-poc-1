@@ -9,5 +9,8 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "terser-webpack-plugin": "^5.1.4",
     "webpack": "^5.50.0"
+  },
+  "dependencies": {
+    "valtio": "^1.2.1"
   }
 }

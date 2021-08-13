@@ -540,6 +540,11 @@ pinkie@^2.0.0:
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/pinkie/-/pinkie-2.0.4.tgz#72556b80cfa0d48a974e80e77248e80ed4f7f870"
   integrity sha1-clVrgM+g1IqXToDnckjoDtT3+HA=
 
+proxy-compare@2.0.2:
+  version "2.0.2"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/proxy-compare/-/proxy-compare-2.0.2.tgz#343e624d0ec399dfbe575f1d365d4fa042c9fc69"
+  integrity sha512-3qUXJBariEj3eO90M3Rgqq3+/P5Efl0t/dl9g/1uVzIQmO3M+ql4hvNH3mYdu8H+1zcKv07YvL55tsY74jmH1A==
+
 punycode@^2.1.0:
   version "2.1.1"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/punycode/-/punycode-2.1.1.tgz#b58b010ac40c22c5657616c8d2c2c02c7bf479ec"
@@ -637,6 +642,13 @@ uri-js@^4.2.2:
   integrity sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==
   dependencies:
     punycode "^2.1.0"
+
+valtio@^1.2.1:
+  version "1.2.1"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/valtio/-/valtio-1.2.1.tgz#19d8514ff5c325ce1dc0ad9ef622d1240c6cbce5"
+  integrity sha512-DQayRId14Luiwh/24wJxgswEFeZJHSWpQLjuAgzuRcRS1ZIhq8F/Fh8h7VvJWLm7AGauyPGHhoEeEAlXUb+zsA==
+  dependencies:
+    proxy-compare "2.0.2"
 
 watchpack@^2.2.0:
   version "2.2.0"
