@@ -1,10 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import classes from './ParentApp.css';
-import {setName, storeSubscribe} from '../store';
+import {updateState, subscribe} from 'storeChild'; // TODO needs to be asynchronous... maybe?
 import TopSection from './sections/TopSection';
 import BottomSection from './sections/BottomSection';
 import('svelteChild/SvelteChildWC');
 import('vueChild/VueChildWC');
+
+const setName = (name) => updateState((draft) => {
+    draft.name = name;
+});
 
 const ParentApp = () => {
     const [state, setState] = useState({
@@ -13,7 +17,7 @@ const ParentApp = () => {
     });
 
     useEffect(() => {
-        const unsubscribe = storeSubscribe((state) => {
+        const unsubscribe = subscribe((state) => {
             setState((prevState) => ({
                 ...prevState,
                 name: state.name
