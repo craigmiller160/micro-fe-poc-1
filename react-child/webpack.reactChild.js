@@ -33,7 +33,7 @@ module.exports = {
             name: 'reactChild',
             filename: 'remoteEntry.js',
             exposes: {
-                './ReactChildWC': './src/ChildIndex'
+                './ReactChildWC': './src/ReactChildIndex'
             },
             shared: {
                 react: {
