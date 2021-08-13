@@ -9,7 +9,7 @@ const deps = require('./package.json').dependencies;
 
 module.exports = {
     mode: process.env.NODE_ENV,
-    entry: path.join(__dirname, 'src', 'ReactChild2.js'),
+    entry: path.join(__dirname, 'src', 'ReactChild2Index.js'),
     output: {
         path: path.join(__dirname, 'build'),
         filename: 'assets/js/[name].[contenthash].js'
@@ -27,7 +27,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'ChildIndex.html')
+            template: path.join(__dirname, 'src', 'ReactChild2Index.html')
         }),
         new ModuleFederationPlugin({
             name: 'reactChild',
