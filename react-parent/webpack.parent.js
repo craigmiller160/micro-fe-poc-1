@@ -52,6 +52,14 @@ module.exports = {
                     '^/vueChild': ''
                 },
                 logLevel: 'debug'
+            },
+            '/storeChild': {
+                target: 'http://localhost:3006',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/storeChild': ''
+                },
+                logLevel: 'debug'
             }
         }
     },
@@ -65,7 +73,8 @@ module.exports = {
             remotes: {
                 reactChild: 'reactChild@/reactChild/remoteEntry.js',
                 svelteChild: 'svelteChild@/svelteChild/remoteEntry.js',
-                vueChild: 'vueChild@/vueChild/remoteEntry.js'
+                vueChild: 'vueChild@/vueChild/remoteEntry.js',
+                storeChild: 'storeChild@/storeChild/remoteEntry.js'
             },
             exposes: {},
             shared: {
