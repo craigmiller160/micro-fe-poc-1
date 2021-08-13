@@ -17,7 +17,7 @@ module.exports = {
             name: 'storeChild',
             filename: 'remoteEntry.js',
             exposes: {
-                './StoreChildWC': './src/StoreChildIndex'
+                '.': './src/StoreChildIndex'
             }
         }),
         new TerserPlugin(),
