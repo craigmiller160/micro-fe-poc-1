@@ -2,15 +2,16 @@ import React, {useEffect, useState} from 'react';
 import classes from './ChildApp.css';
 import Pager from './Pager';
 import useGlobalRouter from '../useGlobalRouter';
+import { subscribe, getState } from 'storeChild';
 
 const ChildApp = () => {
     useGlobalRouter();
     const [state, setState] = useState({
-        name: window.valtioStore?.getState()?.name ?? ''
+        name: getState().name
     })
 
     useEffect(() => {
-        const unsubscribe = window.valtioStore?.storeSubscribe((state) => {
+        const unsubscribe = subscribe((state) => {
             setState((prevState) => ({
                 ...prevState,
                 name: state.name
