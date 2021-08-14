@@ -23,7 +23,17 @@ module.exports = {
     devServer: {
         port: 3001,
         contentBase: path.join(__dirname, 'src'),
-        hot: true
+        hot: true,
+        proxy: {
+            '/storeChild': {
+                target: 'http://localhost:3006',
+                changeOrigin: true,
+                pathRewrite: {
+                    '^/storeChild': ''
+                },
+                logLevel: 'debug'
+            }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -32,6 +42,9 @@ module.exports = {
         new ModuleFederationPlugin({
             name: 'reactChild',
             filename: 'remoteEntry.js',
+            remotes: {
+                storeChild: 'storeChild@/storeChild/remoteEntry.js'
+            },
             exposes: {
                 './ReactChildWC': './src/ReactChildIndex'
             },
